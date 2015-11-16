@@ -1,0 +1,437 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Xiaowen Lin/ xlin11/ 658933338
+\end_layout
+
+\begin_layout Standard
+1.4
+\end_layout
+
+\begin_layout Standard
+(a)
+\begin_inset Formula $\triangle y=sin(x+h)-sin(x)\thickapprox sin'(x)\times h=h\cdot cos(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b)
+\begin_inset Formula $\triangle y/y=h\cdot cos(x)/sin(x)=h\cdot cot(x),$
+\end_inset
+
+ 
+\begin_inset Formula $x\neq\pm n\pi,n=0,1,2,3...$
+\end_inset
+
+.
+ When 
+\begin_inset Formula $x=\pm n\pi,n=0,1,2,3...$
+\end_inset
+
+, there is no real relative error.
+ 
+\end_layout
+
+\begin_layout Standard
+(c)
+\begin_inset Formula $cond=\frac{\triangle y/y}{\triangle x/x}=\frac{h\cdot cot(x)}{h/x}=x\cdot cot(x),$
+\end_inset
+
+
+\begin_inset Formula $x\neq\pm n\pi,n=0,1,2,3...$
+\end_inset
+
+.When 
+\begin_inset Formula $x=\pm n\pi,n=0,1,2,3...$
+\end_inset
+
+, there is no rcondition number.
+\end_layout
+
+\begin_layout Standard
+(d)The curve of cond is like below with 
+\begin_inset Formula $x\in(-15,15)$
+\end_inset
+
+.
+ When 
+\begin_inset Formula $x=\pm n\pi,n=0,1,2,3...$
+\end_inset
+
+, the absolute value of cond is extremely large.
+ So the estimation will be highly sensitive.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ../../../../Desktop/pasted1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.12
+\end_layout
+
+\begin_layout Standard
+(a)
+\begin_inset Formula $x^{2}-y^{2}$
+\end_inset
+
+has a higher accuracy in floating-point arithmetic.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $fl\left(x^{2}-y^{2}\right)=\left[\left(x^{2}\right)\left(1+\delta_{1}\right)-\left(y^{2}\right)\left(1+\delta_{2}\right)\right]\left(1+\delta_{3}\right)=x^{2}+x^{2}\delta_{1}-y^{2}-y^{2}\delta_{2}+x^{2}\delta_{3}+x^{2}\delta_{1}\delta_{3}-y^{2}\delta_{3}-y^{2}\delta_{2}\delta_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\thickapprox x^{2}(1+\delta_{1}+\delta_{3})-y^{2}(1+\delta_{2}+\delta_{3})=(x^{2}-y^{2})(1+2\epsilon_{mach})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $fl\left((x-y)(x+y)\right)=\left[(x-y)(1+\delta_{1})\right]\left[(x+y)(1+\delta_{2})\right](1+\delta_{3})=(x^{2}-y^{2})(1+2\epsilon_{mach})(1+\epsilon_{mach})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b)When x and y are one big with the other very small, 
+\begin_inset Formula $\left(x-y\right)\left(x+y\right)$
+\end_inset
+
+is substantially more accurate.
+ 
+\end_layout
+
+\begin_layout Standard
+When x and y are very different.
+ For an example, x is 
+\begin_inset Formula $10{}^{10}$
+\end_inset
+
+ bigger than y, 
+\begin_inset Formula $x{}^{2}$
+\end_inset
+
+will be 
+\begin_inset Formula $10{}^{20}$
+\end_inset
+
+bigger than 
+\begin_inset Formula $y{}^{2}$
+\end_inset
+
+, which makes 
+\begin_inset Formula $x^{2}$
+\end_inset
+
+cease to change as 
+\begin_inset Formula $y{}^{2}$
+\end_inset
+
+is relatively negligible.
+ 
+\end_layout
+
+\begin_layout Standard
+Programming part
+\end_layout
+
+\begin_layout Standard
+1.4
+\end_layout
+
+\begin_layout Standard
+As k goes from 1 to 8, the estimation continues to increase at a slowing-down
+ speed.
+ So the error continues to approach 0.
+ 
+\end_layout
+
+\begin_layout Standard
+From 9 to 12, the value of 
+\begin_inset Formula $fl\left(1+1/n\right)^{n}$
+\end_inset
+
+is greater than e.
+ Because the rounding error introduced by multiplying a value close to 
+\begin_inset Formula $e\times(1+1/10^{k}),k=[9,10,11,12]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is influentially relatively big.
+ 
+\end_layout
+
+\begin_layout Standard
+From 13 to 14, the rounding error by multiplying the 
+\begin_inset Formula $\left(1+1/n\right)$
+\end_inset
+
+take away the value in the estimation funtction influentially.
+ 
+\end_layout
+
+\begin_layout Standard
+At k=15, 1/n is the last position in mantissa, which means rounding error
+ becomes relatively even bigger.
+ And the rounding error makes the value bigger than e.
+ 
+\end_layout
+
+\begin_layout Standard
+From 16 to 20, 1/n is smaller than 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+, so 1+1/n=1 and the error becomes 1-e.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename HW1_1_4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename WH1_1_4_.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.6 (a)
+\begin_inset Formula $fl(x{}_{n})=fl(x_{0}+\underset{n}{\underbrace{h+\cdots+h}})=a+nh+(n\cdot a+\frac{(1+n)\times n}{2}\cdot h)\epsilon_{mach}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $fl(x{}_{n})=fl(x_{0}+nh)=\left[x_{0}+nh(1+\delta)\right](1+\delta)=x_{0}\times(1+\delta)+nh\times(1+\delta)^{2}\thickapprox a+nh+(a+2nh)\epsilon_{mach}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The second one has a smaller rounding error.
+ So the second one is better.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename HW1_1_6.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first formula is bigger than the second by 4.456487262549658e-13.
+ 
+\end_layout
+
+\begin_layout Standard
+1.7(a)There is a minimum value for the magnitude of error.
+ h=
+\begin_inset Formula $10{}^{-8}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\epsilon_{mach}=\frac{1}{2}\beta^{^{1-p}}=\frac{1}{2}10^{1-17}=0.5\times10^{-16}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\sqrt{\epsilon_{mach}}=\sqrt{0.5\times10^{-16}}\thickapprox7.1\times10^{-9}=0.71\times10^{-8}$
+\end_inset
+
+.
+ It matches well.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename WH1_17a1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename HW1_17a.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename HW1_17a1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b)There is a minimum value for error.
+ The corresponding value for h is 
+\begin_inset Formula $10^{-7}$
+\end_inset
+
+.It is 10 times of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\sqrt{\epsilon_{mach}}$
+\end_inset
+
+.
+ Because this estimation method reduces the truncation error (as you see,
+ the minimum error from the estimation is much smaller than the one from
+ the previous).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename WH1_17b11.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename HW1_17b1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename WH1_17b2.png
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

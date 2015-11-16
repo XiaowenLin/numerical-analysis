@@ -1,0 +1,219 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+CS450 XiaowenLin xlin11
+\end_layout
+
+\begin_layout Standard
+5.4 p248
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g(x)=x-\frac{f(x)}{f(x)'}=x-\frac{1/x-y}{-x^{-2}}=2x-yx^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So this is the iterative scheme for approximating the reciprocal of y, 
+\begin_inset Formula $x_{k+1}=g(x)=2x_{k}-yx_{k}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.12 p249
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g(x)=x-f(x)/d$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(a) 
+\begin_inset Formula $g(x)'=1-f(x)'/d$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $|g(x)'|<1$
+\end_inset
+
+, it will convergent.
+ That is, 
+\begin_inset Formula $1>f(x)'/d>0or2>f(x)'/d>1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $f(x)'>0$
+\end_inset
+
+, 
+\begin_inset Formula $d>f(x)'orf(x)'>d>f(x)'/2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When
+\begin_inset Formula $f(x)'<0,$
+\end_inset
+
+ 
+\begin_inset Formula $d<f(x)'orf(x)'<d<f(x)'/2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b) Asymptotic convergence rate of fixed-point iteration is usually linear,
+ with constant
+\begin_inset Formula $C=|g(x)'|=|1-f(x)'/d|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(c) 
+\begin_inset Formula $g(x*)'=0\Rightarrow d=g(x*)'$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.13 p249
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\boldsymbol{f}(\boldsymbol{x})=\left[\begin{array}{c}
+x_{1}-1\\
+x_{1}x_{2}-1
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\therefore$
+\end_inset
+
+
+\begin_inset Formula $\boldsymbol{J}(\boldsymbol{x})=\frac{\partial f_{i}(\boldsymbol{x})}{\partial x_{j}}=\left[\begin{array}{cc}
+1 & 0\\
+x_{2} & x_{1}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $|\boldsymbol{J}(\boldsymbol{x})|=|\begin{array}{cc}
+1 & 0\\
+x_{2} & x_{1}
+\end{array}|=x_{1}-0=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $x_{1}=0$
+\end_inset
+
+and
+\begin_inset Formula $x_{2}$
+\end_inset
+
+is arbitary value, Jacobian is singular.
+ 
+\end_layout
+
+\begin_layout Standard
+When Jacobian matrix is singular, while the presumption of Newton's method
+ is that Jacobian matrix is nonsigular.
+ The Newton step will be infinite.
+ Thus, Newton's method fails.
+ 
+\end_layout
+
+\end_body
+\end_document

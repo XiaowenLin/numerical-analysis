@@ -1,0 +1,748 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Itemize
+2.7 p97
+\end_layout
+
+\begin_layout Standard
+(a) What is the determinant of A?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $det(A)=|A|=1\times1-(1+\epsilon)\times(1-\epsilon)=\epsilon^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b) In floating-point arithmetic, for waht range of values of 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ will the computed value of the determinant be zero? 
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\epsilon^{2}$
+\end_inset
+
+to be computed as zero, there are two possibilities: one is that 
+\begin_inset Formula $1+\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $1-\epsilon$
+\end_inset
+
+ are rounded to one; the other is that 
+\begin_inset Formula $\epsilon^{2}$
+\end_inset
+
+ is smaller than UFL.
+ 
+\end_layout
+
+\begin_layout Standard
+SP:
+\begin_inset Formula $\epsilon_{mach}=\frac{1}{2}\times2^{1-24}=2^{-24}$
+\end_inset
+
+, 
+\begin_inset Formula $UFL=2^{-126}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\epsilon<2^{-24}$
+\end_inset
+
+ or 
+\begin_inset Formula $\epsilon<2^{-63}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\epsilon<2^{-24}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+DP:
+\begin_inset Formula $\epsilon_{mach}=\frac{1}{2}\times2^{1-53}=2^{-53}$
+\end_inset
+
+, 
+\begin_inset Formula $UFL=2^{-1022}$
+\end_inset
+
+.
+ Similarly, 
+\begin_inset Formula $\epsilon<2^{-53}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In both cases, 
+\begin_inset Formula $\epsilon<\epsilon_{mach}$
+\end_inset
+
+ leads determinant to be zero.
+\end_layout
+
+\begin_layout Standard
+(c) What is the LU factorization of A?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L=\left[\begin{array}{cc}
+1 & 0\\
+\epsilon-1 & 1
+\end{array}\right]$
+\end_inset
+
+, 
+\begin_inset Formula $U=\left[\begin{array}{cc}
+1 & 1+\epsilon\\
+0 & \epsilon^{2}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(d) In floating-point arithmetic, for what range of values of 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ will the computed value of 
+\begin_inset Formula $U$
+\end_inset
+
+ be singular? 
+\end_layout
+
+\begin_layout Standard
+Whether 
+\begin_inset Formula $U$
+\end_inset
+
+ is singular or not depends on the 
+\begin_inset Formula $U(2,2)$
+\end_inset
+
+ value, which is calculated by 
+\begin_inset Formula $(\epsilon-1)\times(\epsilon+1)+1=\epsilon^{2}$
+\end_inset
+
+.
+ It is the same as it in (b).
+ 
+\begin_inset Formula $\epsilon<\epsilon_{mach}$
+\end_inset
+
+ leads 
+\begin_inset Formula $U(2,2)$
+\end_inset
+
+ to be zero, making 
+\begin_inset Formula $U$
+\end_inset
+
+ singular
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+2.26 p98
+\end_layout
+
+\begin_layout Standard
+(a)If A is nonsigular, 
+\begin_inset Formula $A^{-1}$
+\end_inset
+
+must exist.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(I-uv^{t})^{-1}(I-uv^{t})=(I+u(1-v^{t}u)^{-1}v^{t})(I-uv^{t})=I+\frac{1}{1-v^{t}u}uv^{t}-uv^{t}-\frac{v^{t}u}{1-v^{t}u}uv^{t}=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So for any 
+\begin_inset Formula $u,v$
+\end_inset
+
+ that 
+\begin_inset Formula $v^{t}u\neq1$
+\end_inset
+
+, 
+\begin_inset Formula $A^{-1}$
+\end_inset
+
+ exist and A is nonsigular.
+ 
+\end_layout
+
+\begin_layout Standard
+(b)According to (a), 
+\begin_inset Formula $A^{-1}$
+\end_inset
+
+ is equal to 
+\begin_inset Formula $I+\frac{1}{1-v^{t}u}uv^{t}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\sigma=\frac{1}{v^{t}u-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(c)
+\begin_inset Formula $M_{k}=1-me_{k}^{t}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+,
+\begin_inset Formula $e_{k}^{t}m=0$
+\end_inset
+
+, which is not equal to 1.
+ So 
+\begin_inset Formula $M_{k}$
+\end_inset
+
+is nonsingular.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u=m,v=e_{k},\sigma=\frac{1}{v^{t}u-1}=-1$
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.17 p150
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\alpha=\pm\Vert a\Vert_{2}=\pm2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v=\left[\begin{array}{c}
+1\\
+1\\
+1\\
+1
+\end{array}\right]-\left[\begin{array}{c}
+\alpha\\
+0\\
+0\\
+0
+\end{array}\right]=\left[\begin{array}{c}
+1\\
+1\\
+1\\
+1
+\end{array}\right]-\left[\begin{array}{c}
+-2\\
+0\\
+0\\
+0
+\end{array}\right]=\left[\begin{array}{c}
+3\\
+1\\
+1\\
+1
+\end{array}\right]$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha=-2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.22 p151
+\end_layout
+
+\begin_layout Standard
+(a) Show that 
+\begin_inset Formula $R^{T}R=LL^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A^{T}A=\left[Q\left[\begin{array}{c}
+R\\
+O
+\end{array}\right]\right]^{T}Q\left[\begin{array}{c}
+R\\
+O
+\end{array}\right]=\left[\begin{array}{cc}
+R^{T} & O\end{array}\right]Q^{T}Q\left[\begin{array}{c}
+R\\
+O
+\end{array}\right]=\left[\begin{array}{cc}
+R^{T} & O\end{array}\right]\left[\begin{array}{c}
+R\\
+O
+\end{array}\right]=R^{T}R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $A^{T}A=LL^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $R^{T}R=LL^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b) Can one conclude that 
+\begin_inset Formula $R=L^{T}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+No.
+ 
+\begin_inset Formula $L$
+\end_inset
+
+ has to be positive entidiagonal entries, while 
+\begin_inset Formula $R$
+\end_inset
+
+ doesn't.
+ 
+\end_layout
+
+\begin_layout Standard
+For example, 
+\begin_inset Formula $R=-L^{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $A^{T}A=\left[\begin{array}{cc}
+-L & O\end{array}\right]Q^{T}Q\left[\begin{array}{c}
+-L^{T}\\
+O
+\end{array}\right]=LL^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The requirements still hold.
+ But 
+\begin_inset Formula $R=-L^{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.23 p151
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A=QR$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For this sparse matrix, use Givens QR factorization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\begin{array}{ccc}
+c_{1} & s_{1} & 0\\
+-s_{1} & c_{1} & 0\\
+0 & 0 & 1
+\end{array}\right]\times\left[\begin{array}{c}
+1\\
+\epsilon\\
+0
+\end{array}\right]=\left[\begin{array}{c}
+\alpha_{1}\\
+0\\
+0
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\alpha_{1}=\sqrt{1^{2}+\epsilon^{2}}=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c_{1}=\frac{1}{\sqrt{1^{2}+\epsilon^{2}}}=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s_{1}=\frac{\epsilon}{\sqrt{1^{2}+\epsilon^{2}}}=\epsilon$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H_{1}A=\left[\begin{array}{ccc}
+1 & \epsilon & 0\\
+-\epsilon & 1 & 0\\
+0 & 0 & 1
+\end{array}\right]\left[\begin{array}{cc}
+1 & 1\\
+\epsilon & 0\\
+0 & \epsilon
+\end{array}\right]=\left[\begin{array}{cc}
+1+\epsilon^{2} & 1\\
+0 & -\epsilon\\
+0 & \epsilon
+\end{array}\right]=\left[\begin{array}{cc}
+1 & 1\\
+0 & -\epsilon\\
+0 & \epsilon
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\begin{array}{ccc}
+1 & 0 & 0\\
+0 & c_{2} & s_{2}\\
+0 & -s_{2} & c_{2}
+\end{array}\right]\times\left[\begin{array}{c}
+1\\
+-\epsilon\\
+\epsilon
+\end{array}\right]=\left[\begin{array}{c}
+1\\
+\alpha_{2}\\
+0
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\alpha_{2}=\sqrt{\epsilon^{2}+\epsilon^{2}}=\sqrt{2}\epsilon=1.414\epsilon$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c_{2}=\frac{-\epsilon}{\sqrt{\epsilon^{2}+\epsilon^{2}}}=\frac{-1}{\sqrt{2}}=-0.707$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s_{2}=\frac{\epsilon}{\sqrt{\epsilon^{2}+\epsilon^{2}}}=\frac{1}{\sqrt{2}}=0.707$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H_{2}H_{1}A=\left[\begin{array}{ccc}
+1 & 0 & 0\\
+0 & -0.707 & 0.707\\
+0 & -0.707 & -0.707
+\end{array}\right]\left[\begin{array}{cc}
+1 & 1\\
+0 & -\epsilon\\
+0 & \epsilon
+\end{array}\right]=\left[\begin{array}{cc}
+1 & 1\\
+0 & 1.414\epsilon\\
+0 & 0
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $R$
+\end_inset
+
+ is not singular.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.1 p100
+\end_layout
+
+\begin_layout Standard
+(a) show the matrix is singular with exact arithmetic (approximating computer
+ calculation is in the next page).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Ux=y,U=\left[\begin{array}{ccc}
+0.7 & 0.8 & 0.9\\
+0 & \frac{0.6}{7} & \frac{1.2}{7}\\
+0 & 0 & 0
+\end{array}\right],y=\left[\begin{array}{ccc}
+\frac{1}{2} & \frac{1}{35} & 0\end{array}\right]^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\left[\begin{array}{ccc}
+\frac{7}{10} & \frac{4}{5} & \frac{9}{10}\\
+0 & \frac{3}{35} & \frac{6}{35}\\
+0 & 0 & 0
+\end{array}\right]x=\left[\begin{array}{ccc}
+\frac{1}{2} & \frac{1}{35} & 0\end{array}\right]^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b) with exact arithmetic, at what point would this process fail?
+\end_layout
+
+\begin_layout Standard
+After it replace A with
+\begin_inset Formula $\left[\begin{array}{ccc}
+0.1 & 0.2 & 0.3\\
+0 & -0.3 & -0.6\\
+0 & -0.6 & -1.2
+\end{array}\right]$
+\end_inset
+
+ and try to eliminate row 3 with row 2.
+ It becomes 
+\begin_inset Formula $\left[\begin{array}{ccc}
+0.1 & 0.2 & 0.3\\
+0 & -0.3 & -0.6\\
+0 & 0 & 0
+\end{array}\right]$
+\end_inset
+
+.The rank is lower than 3.
+ It fails when it begine to do back-substitution for upper triangular system
+ because the pivot (3,3) is zero.
+ 
+\end_layout
+
+\begin_layout Standard
+(c) Next page.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document
