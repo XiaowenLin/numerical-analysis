@@ -1,5 +1,5 @@
 # numerical-analysis
-cs450 under micheal heath
+micheal heath, cs450
 
 
 Credit: 3 OR 4 hours.
